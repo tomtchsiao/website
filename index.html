@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tzu-Chi Hsiao | Homepage</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --main-bg-color: #F0F4F8;
+        --container-bg-color: #FFFFFF;
+        --text-color: #333333;
+        --link-color: #007BFF;
+        --link-visited-color: #6610f2;
+        --link-hover-color: #0056b3;
+        --link-active-color: #004085;
+        --highlight-color: #0E9BF3;
+        --secondary-text-color: #000204;
+        --profile-pic-size: 100px;
+        --font-family: 'Noto Sans TC', sans-serif;
+        --font-family-serif: 'Noto Sans TC', serif;
+    }
+    body {
+        font-family: var(--font-family);
+        background-color: var(--main-bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: var(--container-bg-color);
+    }
+    h1 {
+        font-family: var(--font-family-serif);
+        text-align: center;
+        color: var(--highlight-color);
+        margin-bottom: 20px;
+    }
+    p {
+        font-size: 16px;
+        font-family: var(--font-family-serif);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+    .introduction, .education, .future-target {
+        margin-bottom: 24px;
+    }
+    a {
+        color: var(--link-color);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    a:visited {
+        color: var(--link-visited-color);
+    }
+    a:hover {
+        color: var(--link-hover-color);
+    }
+    a:active {
+        color: var(--link-active-color);
+    }
+    #time {
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .profile-pic {
+        width: var(--profile-pic-size);
+        height: var(--profile-pic-size);
+        display: block;
+        margin-left: 10px auto;
+        background-image: url('zqxiao.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 16px;
+    }
+</style>
+<link rel="icon" type="x-icon" href="fav.ico">
+</head>
+<body>
+    <div id="time"></div>
+    <script>
+        setInterval(() => {
+            const now = new Date();
+            const yyyy = now.getFullYear();
+            const mm = (now.getMonth() + 1).toString().padStart(2, '0');
+            const dd = now.getDate().toString().padStart(2, '0');
+            const hh = now.getHours().toString().padStart(2, '0');
+            const min = now.getMinutes().toString().padStart(2, '0');
+            const ss = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('time').textContent = `Current date is  ${dd} / ${mm} / ${yyyy}  and time is  ${hh}:${min}:${ss}.`;
+        }, 1000);
+    </script>
+    <div class="container">
+        <h1>TZU-CHI, HSIAO (蕭子期)</h1>
+        <ul>
+            <li>
+                <div class="profile-pic"></div>
+            </li>
+            <li>
+                &bull; Schedule is available<a href="sch.html"> here (Fall, 2024.)</a> and<a href="schJ3S.html"> here (Spring, 2025.)</a>.
+            </li>
+            <li class="introduction">
+                <span style="color: var(--secondary-text-color)">&bull; Short biography</span><br>
+                His name is Tzu-Chi (Tom) Hsiao. He currently wears <span style="color: #B933FF">hearing-aids</span> and an undergraduate student at National Chung Cheng University. His interests include societal research and establishing website via HTML, CSS, and JavaScript.
+            </li>
+            <li class="education">
+                <span style="color: var(--secondary-text-color)">&bull; Education</span><br>
+                <span style="color: #000000"> Bachelor of Engineering,</span>&nbsp;<a href="https://www.cs.ccu.edu.tw">Department of Computer Science</a>,&nbsp;<a href="https://www.ccu.edu.tw/">National Chung Cheng University</a>.
+            </li>
+        </ul>
+        &bull; <span style="color: #000000">Mail to: </span><span style="color: #117864"><a href="mailto:stchi111u@cs.ccu.edu.tw">Electronic mailing address</a></span>. <br>
+        <br>
+        &bull; <span style="color: red"> This website stopped updating on Saturday, 28 December 2024 00:00:00 (CST). </span>
+        </div>
+</body>
+</html>
