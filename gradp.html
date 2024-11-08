@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The impact of daily diet and exercise on weight</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        header {
+            background-color: #007acc;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 2em 0;
+        }
+        .project {
+            background: white;
+            margin: 1em 0;
+            padding: 1em;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .project:hover {
+            transform: scale(1.02);
+        }
+        .project h2 {
+            margin-top: 0;
+        }
+        .project p {
+            display: none;
+        }
+        .project button {
+            background-color: #007acc;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .project button:hover {
+            background-color: #005f99;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 0.5em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        a {
+            color: #007acc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:visited {
+            color: #005f99;
+        }
+        a:hover {
+            color: #003f66;
+        }
+        a:active {
+            color: #001f33;
+        }
+    </style>
+<link rel="icon" type="x-icon" href="icon.ico">
+</head>
+<body>
+    <header>
+        <h1>The impact of daily diet and exercise on weight</h1>
+        <h3>Advisor: Professor Ren-Song, Ko. <br>
+        Members: Senior students Wen-Shuo, Hsu and Tzu-Chi, Hsiao. </h3>
+    </header>
+    <div class="container">
+        <section class="project">
+            <h2>Specification</h2>
+            <button onclick="toggleDetails(this)">Show Details</button>
+            <p>
+                Please check <a href="doc.pdf">document</a> and <a href="slide.pdf">handout</a>.
+            </p>
+        </section>
+        <section class="project">
+            <h2>Source Code</h2>
+            <button onclick="toggleDetails(this)">Show Details</button>
+            <p>
+                Please download from <a href="weight_prediction.zip">here</a>.
+            </p>
+        </section>
+    </div>
+    <footer>
+        <p> &copy; For any display errors, please contact <span style="color: red"><a href="mailto:stchi111u@cs.ccu.edu.tw">Members</a></span>.</p>
+    </footer>
+    <script>
+        function toggleDetails(button) {
+            var details = button.nextElementSibling;
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+                button.textContent = "Hide Details";
+            } else {
+                details.style.display = "none";
+                button.textContent = "Show Details";
+            }
+        }
+    </script>
+</body>
+</html>
+
