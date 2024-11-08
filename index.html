@@ -1,124 +1,126 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tzu-Chi Hsiao | Homepage</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
-<style>
-    :root {
-        --main-bg-color: #F0F4F8;
-        --container-bg-color: #FFFFFF;
-        --text-color: #333333;
-        --link-color: #007BFF;
-        --link-visited-color: #6610f2;
-        --link-hover-color: #0056b3;
-        --link-active-color: #004085;
-        --highlight-color: #0E9BF3;
-        --secondary-text-color: #000204;
-        --profile-pic-size: 100px;
-        --font-family: 'Noto Sans TC', sans-serif;
-        --font-family-serif: 'Noto Sans TC', serif;
-    }
-    body {
-        font-family: var(--font-family);
-        background-color: var(--main-bg-color);
-        color: var(--text-color);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The impact of daily diet and exercise on weight</title>
+    <style>
+        .landing-screen {
+        height: 100vh;
+        width: 100%;
+        background-color: #4CAF50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 2.5em;
+        text-align: center;
+        }
+        body, html {
         margin: 0;
         padding: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
     }
     .container {
-        width: 80%;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: var(--container-bg-color);
+        min-height: 100vh;
+        width: 100%;
+        padding: 2em;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     h1 {
-        font-family: var(--font-family-serif);
-        text-align: center;
-        color: var(--highlight-color);
-        margin-bottom: 20px;
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 0;
+            z-index: 2;
+            position: relative;
     }
-    p {
-        font-size: 16px;
-        font-family: var(--font-family-serif);
-        color: var(--text-color);
-        line-height: 1.6;
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select, button {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.5em;              
+            font-weight: 700;            
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;      
+            padding: 10px;      
+        }
+        #chartContainer {
+             margin-top: 20px;
+             width: 60%;        
+             min-height: 150px; 
+             height: auto;       
     }
-    .introduction, .education, .future-target {
-        margin-bottom: 24px;
-    }
-    a {
-        color: var(--link-color);
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-    a:visited {
-        color: var(--link-visited-color);
-    }
-    a:hover {
-        color: var(--link-hover-color);
-    }
-    a:active {
-        color: var(--link-active-color);
-    }
-    #time {
-        text-align: center;
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-    .profile-pic {
-        width: var(--profile-pic-size);
-        height: var(--profile-pic-size);
-        display: block;
-        margin-left: 10px auto;
-        background-image: url('zqxiao.jpg');
-        background-size: cover;
-        background-position: center;
-    }
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        margin-bottom: 16px;
-    }
-</style>
-<link rel="icon" type="x-icon" href="fav.ico">
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="x-icon" href="icon.ico">
 </head>
 <body>
-    <div id="time"></div>
-    <script>
-        setInterval(() => {
-            const now = new Date();
-            const yyyy = now.getFullYear();
-            const mm = (now.getMonth() + 1).toString().padStart(2, '0');
-            const dd = now.getDate().toString().padStart(2, '0');
-            const hh = now.getHours().toString().padStart(2, '0');
-            const min = now.getMinutes().toString().padStart(2, '0');
-            const ss = now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('time').textContent = `Current date is  ${dd} / ${mm} / ${yyyy}  and time is  ${hh}:${min}:${ss}.`;
-        }, 1000);
-    </script>
+    <div class="landing-screen">
+        The impact of daily diet and exercise on weight
+    </div>
     <div class="container">
-        <h1>TZU-CHI, HSIAO (蕭子期)</h1>
-        <ul>
-            <li>
-                <div class="profile-pic"></div>
-            </li>
-           <li class="introduction">
-                <span style="color: var(--secondary-text-color)">&bull; Short biography</span><br>
-                His name is Tzu-Chi (Tom) Hsiao. He currently wears <span style="color: #B933FF">hearing-aids</span> and an undergraduate student at National Chung Cheng University. His interests include societal research and establishing website via HTML, CSS, and JavaScript.
-            </li>
-            <li class="education">
-                <span style="color: var(--secondary-text-color)">&bull; Education</span><br>
-                <span style="color: #000000"> Bachelor of Engineering, 2022-2026,</span>&nbsp;<a href="https://www.cs.ccu.edu.tw">Department of Computer Science</a>,&nbsp;<a href="https://www.ccu.edu.tw/">National Chung Cheng University</a>.
-            </li>
-        </ul>
-        &bull; <span style="color: #000000">Mail to: </span><span style="color: #117864"><a href="mailto:stchi111u@cs.ccu.edu.tw">Electronic mailing address</a></span>. <br>
-        <br>
-       </div>
+        <h1>The impact of daily diet and exercise on weight</h1>
+        <form id="dataForm">
+            <label for="height">Height in cm:</label>
+            <input type="number" id="height" name="height" required><br>
+            <label for="weight">Weight in kg:</label>
+            <input type="number" id="weight" name="weight" required><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br>
+            <label for="activityLevel">Activity Level:</label>
+            <select id="activityLevel" name="activityLevel">
+                <option value="sedentary">Sedentary</option>
+                <option value="light">Light</option>
+                <option value="moderate">Moderate</option>
+                <option value="active">Active</option>
+                <option value="very_active">Very active</option>
+            </select><br>
+            <label for="dietType">Diet type:</label>
+            <select id="dietType" name="dietType">
+                <option value="vegetarian">Vegetarian</option>
+                <option value="meat">Meat</option>
+                <option value="lacto_ovo_vegetarian">Lacto ovo vegetarian</option>
+                <option value="balanced">Balanced</option>
+            </select><br>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+        <div id="chartContainer">
+            <canvas id="resultChart"></canvas>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
 </body>
 </html>
