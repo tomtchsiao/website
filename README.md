@@ -1,1 +1,1 @@
-Welcome to my personnal website.
+Welcome to my project website.
