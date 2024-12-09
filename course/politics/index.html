@@ -54,25 +54,45 @@
             <h2>Announcement</h2>
             <p>
                 <span style="color: red">
-                <!-- <b>We consider the performance of students by adding five points to the semester grades.</b> <br> -->
-                Midterm held on Week 08, covered Handout 1 to 5. <br>
-                Final held on Week 16, covered Handout 6 to 10. <br>
+                <!-- <b> We consider the performance of students by adding 10 points to the semester grades. </b> <br> -->
+                Midterm held on Week 08, covered Handout 01 to 05. <br>
+                Final held on Week 16, covered Handout 06 to 10. <br>
                 </span>
                 Week 07 and 15 have review lessons, and Week 09 will announced the midterm with reference answers. <br>
                 Week 17 will announced the final with reference answers and check the semester grades in live streaming between 09:30 to 10:30 on YouTube. <br> (Links is provided <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a>.)
             </p>
             <h2>Course information</h2>
-            <h2>Contacts</h2>
+            Instructor: Tzu-Chi Hsiao <br>
+            Feel free to  <a href="mailto:tomtchsiao@gmail.com">mail</a> with me. <br>
+            Office hours: By appointment. <br>
+            Course time: Every Tuesday 09:20-12:10. <br>
+            Course location: Room 102, Social Sciences Building, NTU. <br>
+            Course limitation: 150 students (Politics: 70, Others: 80), <b>Welcome listener to join us </b>, this class have 200 seats. <br>
             <h2>Textbook</h2>
-            <h2>Course Description</h2>
+            Politics, Andrew Heywood, Newest edition. <br>
+            <h2>Why taking this course</h2>
+            A. Realize your life. <br>
+            B. Understand what is the value we urging for. <br>
+            C. Learning by solving problems. <br>
             <h2>Handouts</h2>
             <a href="handout/01/01.pdf">Handout 01</a> <br>
-            <h2>Old exams</h2>
-            <a href="exam/exam.pdf">Sample_exam</a>
-            <h2>Grades</h2>
+            <a href="handout/02/02.pdf">Handout 02</a> <br>
+            <a href="handout/03/03.pdf">Handout 03</a> <br>
+            <a href="handout/04/04.pdf">Handout 04</a> <br>
+            <a href="handout/05/05.pdf">Handout 05</a> <br>
+            <a href="handout/mid/mid.pdf">Midterm Review</a> <br>
+            <a href="handout/06/06.pdf">Handout 06</a> <br>
+            <a href="handout/07/07.pdf">Handout 07</a> <br>
+            <a href="handout/08/08.pdf">Handout 08</a> <br>
+            <a href="handout/09/09.pdf">Handout 09</a> <br>
+            <a href="handout/10/10.pdf">Handout 10</a> <br>
+            <a href="handout/fin/fin.pdf">Final Review</a>
+            <h2>Sample exams</h2>
+            <a href="exam/exam.pdf">Sample exam</a>
+            <h2>Grade table</h2>
             <p>Midterm: 50%, Final: 50%</p>
             <p>
-                Forms <br>
+                Exam forms list in below. <br>
                 First is True or False. (30 points, Each 3%) <br>
                 Second is terminlogy.  (30 points, Each 5%) <br>
                 Third is short essay. (40 points, Each 10%, 30%) <br>
@@ -87,7 +107,7 @@
                 </tr>
                 <tr>
                     <td>414___005</td>
-                    <td class="mid">88</td>
+                    <td class="mid">94</td>
                     <td class="final">92</td>
                     <td class="total">0</td>
                     <td class="grade">0</td>
@@ -144,7 +164,7 @@ function calculateTotal() {
         finalElem.textContent = final;
         let totalScore = 0; 
         totalScore = mid * weights.mid + final * weights.final;
-        totalScore += 0; // Adding between five to ten points by performance.
+        totalScore += 0; // Adding by performance.
         if (totalScore > 100) totalScore = 100; // Not exceed 100.
         const totalCell = rows[i].querySelector('.total');
         totalCell.textContent = Math.round(totalScore); 
