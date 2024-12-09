@@ -1,0 +1,53 @@
+\documentclass[14pt,a4paper,addpoints]{exam}
+\usepackage{graphicx}
+\usepackage{zhnumber}
+\usepackage{ctex}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{amsmath, amsthm, amssymb}
+\pointname{ 分}
+\pointformat{(\thepoints)}
+\renewcommand{\thequestion}{\arabic{question}}
+\renewcommand{\questionlabel}{\thequestion .}
+\renewcommand{\thepartno}{\arabic{partno}}
+\renewcommand{\partlabel}{ (\thepartno) }
+\renewcommand{\thesubpart}{}
+\renewcommand{\subpartlabel}{\thesubpart.}
+\renewcommand{\thesubsubpart}{}
+\renewcommand{\subsubpartlabel}{\thesubsubpart.}
+\renewcommand{\thechoice}{\Alph{choice}}
+\renewcommand{\choicelabel}{(\thechoice)}
+\renewcommand{\questionshook}{%
+    \setlength{\leftmargin}{0pt}%
+    \setlength{\labelwidth}{-\labelsep}%
+}
+\pagestyle{headandfoot}
+\firstpagefooter{}{第 \thepage / \numpages 頁}{}
+\runningfooter{}{第 \thepage / \numpages 頁}{}
+\begin{document}
+    \begin{center}
+    \fontsize{15pt}{15pt}\selectfont
+    政治學期末試卷 \\
+    \end{center}
+    \vspace{0.3cm}
+    \fontsize{14pt}{14pt}\selectfont
+    壹、是非題 (3\%, 30 pts) \\
+    \begin{questions}
+    \question[3] 授課時間為週日。
+    \end{questions}
+    \vspace{0.3cm}
+    貳、解釋題 (5\%, 30 pts) \\
+    \begin{questions}
+    \question[5] 請解釋何謂政治學。
+    \end{questions}
+    \vspace{0.3cm}
+    參、申論題 (10\%, 30\%, 40 pts) \\
+    \begin{questions}
+    \question[] 請說明何謂政治制度。
+    \begin{parts}
+    \part[10] 。
+    \part[30] 。
+    \end{parts}
+    \end{questions}
+\end{document}
