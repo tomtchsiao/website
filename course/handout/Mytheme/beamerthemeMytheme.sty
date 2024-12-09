@@ -1,0 +1,44 @@
+\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+\ProcessOptionsBeamer
+\mode<presentation>
+\useinnertheme{default}
+\useoutertheme{Mytheme}
+\usecolortheme{Blue}
+\usepackage{xcolor}
+\setbeamerfont{frametitle}{size=\LARGE, family=\sffamily}
+\setbeamerfont{block title}{size=\large, family=\sffamily}
+\setbeamerfont{block body}{size=\large, family=\sffamily}
+\setbeamerfont{normal text}{size=\large, family=\sffamily}
+\AtBeginDocument{%
+  {
+    \usebeamercolor{section in head/foot}
+  }
+ \pgfdeclareverticalshading{beamer@headfade}{\paperwidth}
+  {%
+    color(0cm)=(bg);
+    color(2cm)=(section in head/foot.bg)% 
+  }
+  \setbeamercolor{section in head/foot}{bg=}
+}
+\addtoheadtemplate{\pgfuseshading{beamer@headfade}\vskip-2cm}{}
+\setbeamertemplate{frametitle}
+{
+  \vspace*{-2ex}
+  \begin{center}
+\vbox{\strut\insertframetitle\strut}
+  \end{center}
+  \vspace*{-3ex}
+}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{invisible}
+\setbeamertemplate{section in toc}[sections unnumbered]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\beamertemplatedotitem
+\setbeamercolor{yellowuppercol}{fg=yellow!55!white, bg=black}
+\setbeamercolor{yellowlowercol}{fg=black, bg=yellow!55!white}
+\mode
+<all>
+\setbeamertemplate{itemize item}{\raisebox{0.2em}{\rule{0.8ex}{0.8ex}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.1em}{\rule{0.6ex}{0.6ex}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.1em}{\rule{0.4ex}{0.4ex}}}
