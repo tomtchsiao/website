@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Politics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, nav, main, footer {
+            padding: 20px;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+           color: green; 
+        }
+        a:active{
+            color: purple;
+        }
+        section {
+            margin-bottom: 14px;
+        }
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            font-size: 13px;
+        }
+        table {
+            margin: 0;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Politics</h1>
+        <p>Instructor: Professor Tzu-Chi, Hsiao</p>
+    </header>
+    <main>
+            <h2>Announcement</h2>
+            <p>
+                <span style="color: red">
+                <!-- <b>We consider the performance of students by adding five points to the semester grades.</b> <br> -->
+                Midterm held on Week 08, covered Handout 1 to 5. <br>
+                Final held on Week 16, covered Handout 6 to 10. <br>
+                </span>
+                Week 07 and 15 have review lessons, and Week 09 will announced the midterm with reference answers. <br>
+                Week 17 will announced the final with reference answers and check the semester grades in live streaming between 09:30 to 10:30 on YouTube. <br> (Links is provided <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a>.)
+            </p>
+            <h2>Course information</h2>
+            <h2>Contacts</h2>
+            <h2>Textbook</h2>
+            <h2>Course Description</h2>
+            <h2>Handouts</h2>
+            <a href="handout/01.pdf">Handout 1</a> <br>
+            <h2>Grades</h2>
+            <p>Midterm: 50%, Final: 50%</p>
+            <p>
+                Forms <br>
+                First is True or False. (30 points, Each 3%) <br>
+                Second is terminlogy.  (30 points, Each 5%) <br>
+                Third is short essay. (40 points, Each 10%, 30%) <br>
+            </p>
+            <table id="gradesTable"> 
+                <tr>
+                    <td>ID</td>
+                    <td>Midterm</td>
+                    <td>Final</td>
+                    <td>Total</td>
+                    <td>Grade</td>
+                </tr>
+                <tr>
+                    <td>414___005</td>
+                    <td class="mid">88</td>
+                    <td class="final">92</td>
+                    <td class="total">0</td>
+                    <td class="grade">0</td>
+                </tr>
+                <tr>
+                    <td>414___006</td>
+                    <td class="mid">68</td>
+                    <td class="final">88</td>
+                    <td class="total">0</td>
+                    <td class="grade">0</td>
+                </tr>
+                <tr>
+                    <td>414___007</td>
+                    <td class="mid">88</td>
+                    <td class="final">0</td>
+                    <td class="total">0</td>
+                    <td class="grade">0</td>
+                </tr>
+    </table>
+    <button id="exportBtn">Export this table sheet</button>
+    </main>
+    <footer>
+    <p>&copy; Politics;</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+   const weights = { // Weights of this course. Each costs 50% is well to detect performance.
+    mid: 0.5,
+    final: 0.5
+};
+function getGrade(totalScore, mid, final) { // Line of GPA grading.
+        if (mid === 0 || final === 0) return 'F';
+        if (totalScore >= 97.5) return 'A+';
+        if (totalScore >= 92.5) return 'A';
+        if (totalScore >= 87.5) return 'A-';
+        if (totalScore >= 81.5) return 'B+';
+        if (totalScore >= 75.5) return 'B';
+        if (totalScore >= 69.5) return 'B-';
+        if (totalScore >= 64.5) return 'C+';
+        if (totalScore >= 59.5) return 'C';
+        if (totalScore >= 54.5) return 'C-';
+        return 'F';
+}
+function calculateTotal() {
+    const table = document.getElementById('gradesTable');
+    const rows = table.getElementsByTagName('tr');
+    for (let i = 1; i < rows.length; i++) { // Add by each rows.
+        const midElem = rows[i].querySelector('.mid');
+        let mid = Math.min(parseFloat(midElem.textContent), 100);
+        midElem.textContent = mid;
+        const finalElem = rows[i].querySelector('.final');
+        let final = Math.min(parseFloat(finalElem.textContent), 100);
+        finalElem.textContent = final;
+        let totalScore = 0; 
+        totalScore = mid * weights.mid + final * weights.final;
+        totalScore += 0; // Adding between five to ten points by performance.
+        if (totalScore > 100) totalScore = 100; // Not exceed 100.
+        const totalCell = rows[i].querySelector('.total');
+        totalCell.textContent = Math.round(totalScore); 
+        const gradeCell = rows[i].querySelector('.grade');
+        const grade = getGrade(totalScore, mid, final);
+        gradeCell.textContent = grade;
+        }
+    }
+    function exportToExcel() { // Export to Excel file and upload to system by hand.
+        const table = document.getElementById('gradesTable');
+        const wb = XLSX.utils.table_to_book(table, {sheet: "sheet"});
+        XLSX.writeFile(wb, 'grades_Politics_Required.xlsx');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        calculateTotal();
+        document.getElementById('exportBtn').addEventListener('click', exportToExcel);
+    });
+</script>
+</body>
+</html>
