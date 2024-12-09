@@ -1,1 +1,160 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Politics Ideology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, nav, main, footer {
+            padding: 20px;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+           color: green; 
+        }
+        a:active{
+            color: purple;
+        }
+        section {
+            margin-bottom: 14px;
+        }
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            font-size: 13px;
+        }
+        table {
+            margin: 0;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Politics Ideology</h1>
+    </header>
+    <main>
+            <h2>Announcement</h2>
+            <p>
+            <span style="color: blue">Presentation will be held between Week 9 to Week 15</span>. <br>
+            <span style="color: purple">Each presentation will be 20 minutes</span>. <br>
+            <span style="color: blue">Paper report will be submitted on Week 7</span>.<br>
+            <span style="color: red">This course limited to 30 attendances</span>.<br>
+            We have four handouts, you can pick the topics inside or find your own. <br>
+            </p>
+            <h2>Course information</h2>
+            <h2>Contacts</h2>
+            <h2>Textbook</h2>
+            <h2>Course Description</h2>
+            <h2>Handouts</h2>
+            <a href="handout/01.pdf">Handout 1</a> <br>
+            <h2>Paper report</h2>
+            <p>
+            13 sizes font, a line spacing, with Times New Roman and BiauKai font. <br>
+            Page limited to 10 pages. <br>
+            </p>
+            <h2>Presentation</h2>
+            <table>
+            <tr>
+                <td>Week</td>
+                <td>Time</td>
+                <td>Presenter</td>
+            </tr>
+            <tr>
+                <td>Week 9</td>
+                <td>10:10-10:30</td>
+                <td>414___005</td>
+            </tr>
+            </table>
+            <h2>Grades</h2>
+            <p>Paper report: 50%, Presentation: 50%</p>
+            <table id="gradesTable">
+                <tr>
+                    <td>ID</td>
+                    <td>Paper</td>
+                    <td>Present</td>
+                    <td>Total</td>
+                    <td>Grade</td>
+                </tr>
+                <tr>
+                    <td>414___005</td>
+                    <td class="paper">88</td>
+                    <td class="present">95</td>
+                    <td class="total">0</td>
+                    <td class="grade">0</td>
+                </tr>
+    </table>
+    <button id="exportBtn">Export this table sheet</button>
+    </main>
+    <footer>
+    <p>&copy; Politics Ideology;</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+    const weights = {
+        paper: 0.5,
+        present: 0.5
+    };
+    function getGrade(totalScore, paper, present) {
+        if (paper === 0 || present === 0) return 'F';
+        if (totalScore >= 97.5) return 'A+';
+        if (totalScore >= 94.5) return 'A';
+        if (totalScore >= 90.5) return 'A-';
+        if (totalScore >= 84.5) return 'B+';
+        if (totalScore >= 78.5) return 'B';
+        if (totalScore >= 72.5) return 'B-';
+        if (totalScore >= 67.5) return 'C+';
+        if (totalScore >= 63.5) return 'C';
+        if (totalScore >= 59.5) return 'C-';
+        return 'F';
+    }
+    function calculateTotal() {
+        const table = document.getElementById('gradesTable');
+        const rows = table.getElementsByTagName('tr');
+        for (let i = 1; i < rows.length; i++) {
+            const paperElem = rows[i].querySelector('.paper');
+            let paper = Math.min(parseFloat(paperElem.textContent) || 0, 100);
+            paperElem.textContent = paper;
+            const presentElem = rows[i].querySelector('.present');
+            let present = Math.min(parseFloat(presentElem.textContent) || 0, 100);
+            presentElem.textContent = present;
+            let totalScore = paper * weights.paper + present * weights.present;
+            totalScore += 0; // Adding between one to three points by performance.
+            if (totalScore > 100) totalScore = 100; // Not exceed 100.
+            const totalCell = rows[i].querySelector('.total');
+            totalCell.textContent = Math.round(totalScore);
+            const gradeCell = rows[i].querySelector('.grade');
+            const grade = getGrade(totalScore, paper, present);
+            gradeCell.textContent = grade;
+        }
+    }
+    function exportToExcel() {
+        const table = document.getElementById('gradesTable');
+        const wb = XLSX.utils.table_to_book(table, {sheet: "sheet"});
+        XLSX.writeFile(wb, 'grades_Politics_ideology.xlsx');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        calculateTotal();
+        document.getElementById('exportBtn').addEventListener('click', exportToExcel);
+    });
+</script>
+</body>
+</html>
