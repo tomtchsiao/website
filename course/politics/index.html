@@ -101,7 +101,7 @@
             <a href="exam/exam.pdf">Sample exam</a>
             <h2>Grade table</h2>
             <p>
-                Assignments: 30%, Midterm costs 35%, and Final costs 35%. <br>
+                Assignments: 25%, Midterm costs 35%, and Final costs 40%. <br>
                 We use <b>Gradescope</b> to grade your works.
             </p>
             <p>
@@ -149,9 +149,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
    const weights = { // Weights of this course. Each costs 50% is well to detect performance.
-    hw:0.3,
+    hw:0.25,
     mid: 0.35,
-    final: 0.35
+    final: 0.4
 };
 function getGrade(totalScore, mid, final) { // Line of GPA grading.
         if (mid === 0 || final === 0) return 'F';
