@@ -86,15 +86,15 @@
             <p>
             &bull; Submit on Week 8. <br>
             &bull; 13 sizes font, a line spacing, with Times New Roman and BiauKai font. <br>
-            &bull; Page limited to 8 pages. <br>
+            &bull; Forms costs 5%, Content costs 30%
             </p>
             <h2>Presentation</h2>
             <p>
             &bull; Held between Week 10 to Week 16. <br>
             &bull; Each student has 20 minutes presentation. <br>
             &bull; Times New Roman and BiauKai font. <br>
-            &bull; Page limited to 20 pages. <br>
             &bull; We are <b>not</b> encourage absence or skip if not in your turn. <br>
+            &bull; Forms costs 5%, Overall content costs 30%, Performance of presentation 30%.
             </p>
             <h2>Presentation sequence</h2>
             <table>
@@ -110,7 +110,7 @@
             </tr>
             </table>
             <h2>Grades</h2>
-            <p>Paper report: 50%, Presentation: 50%</p>
+            <p>Paper report: 35%, Presentation: 65%</p>
             <table id="gradesTable">
                 <tr>
                     <td>ID</td>
@@ -136,8 +136,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
     const weights = {
-        paper: 0.5,
-        present: 0.5
+        paper: 0.35,
+        present: 0.65
     };
     function getGrade(totalScore, paper, present) {
         if (paper === 0 || present === 0) return 'F';
