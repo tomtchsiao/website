@@ -54,7 +54,6 @@
             <h2>Announcement</h2>
             <p>
                 <span style="color: red">
-                <!-- <b> We consider the performance of students by adding 10 points to the semester grades. </b> <br> -->
                 Midterm held on Week 09, covered Chapter 01 to 12. <br>
                 Final held on Week 15, covered Chapter 13 to 20. <br>
                 </span>
@@ -206,14 +205,14 @@
 };
 function getGrade(totalScore, mid, final) { // Line of GPA grading.
         if (mid === 0 || final === 0) return 'F';
-        if (totalScore >= 93.5) return 'A+';
-        if (totalScore >= 88.5) return 'A';
-        if (totalScore >= 83.5) return 'A-';
-        if (totalScore >= 78.5) return 'B+';
-        if (totalScore >= 73.5) return 'B';
-        if (totalScore >= 69.5) return 'B-';
-        if (totalScore >= 66.5) return 'C+';
-        if (totalScore >= 62.5) return 'C';
+        if (totalScore >= 89.5) return 'A+';
+        if (totalScore >= 84.5) return 'A';
+        if (totalScore >= 79.5) return 'A-';
+        if (totalScore >= 75.5) return 'B+';
+        if (totalScore >= 71.5) return 'B';
+        if (totalScore >= 67.5) return 'B-';
+        if (totalScore >= 64.5) return 'C+';
+        if (totalScore >= 61.5) return 'C';
         if (totalScore >= 59.5) return 'C-';
         return 'F';
 }
@@ -238,7 +237,6 @@ function calculateTotal() {
         }
         let hwAverage = hwTotal / hwCount;
         totalScore = hwAverage * weights.hw + mid * weights.mid + final * weights.final;
-        totalScore += 0; // Adding by performance.
         if (totalScore > 100) totalScore = 100; // Not exceed 100.
         const totalCell = rows[i].querySelector('.total');
         totalCell.textContent = Math.round(totalScore); 
