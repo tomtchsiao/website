@@ -249,6 +249,7 @@ function calculateTotal() {
         }
         let hwAverage = hwTotal / hwCount;
         totalScore = hwAverage * weights.hw + mid * weights.mid + final * weights.final;
+        totalScore += 5; //Add by performance.
         if (totalScore > 100) totalScore = 100; // Not exceed 100.
         const totalCell = rows[i].querySelector('.total');
         totalCell.textContent = Math.round(totalScore); 
