@@ -5,7 +5,7 @@
     <title>Politics</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Times New Roman", "標楷體";
             margin: 0;
             padding: 0;
         }
@@ -139,7 +139,6 @@
                     <td>Midterm</td>
                     <td>Final</td>
                     <td>Total</td>
-                    <td>Grade</td>
                 </tr>
                 <tr>
                     <td>493___001</td>
@@ -151,67 +150,6 @@
                     <td class="mid">87</td>
                     <td class="final">89</td>
                     <td class="total">0</td>
-                    <td class="grade">0</td>
-                </tr>
-                                <tr>
-                    <td>493___002</td>
-                    <td class="hw">96</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="mid">96</td>
-                    <td class="final">98</td>
-                    <td class="total">0</td>
-                    <td class="grade">0</td>
-                </tr>
-                                <tr>
-                    <td>493___003</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="mid">66</td>
-                    <td class="final">78</td>
-                    <td class="total">0</td>
-                    <td class="grade">0</td>
-                </tr>
-                <tr>
-                    <td>493___004</td>
-                    <td class="hw">96</td>
-                    <td class="hw">92</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="mid">76</td>
-                    <td class="final">85</td>
-                    <td class="total">0</td>
-                    <td class="grade">0</td>
-                </tr>
-                <tr>
-                    <td>493___005</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="hw">100</td>
-                    <td class="mid">53</td>
-                    <td class="final">52</td>
-                    <td class="total">0</td>
-                    <td class="grade">0</td>
-                </tr>
-                <tr>
-                    <td>493___0XX</td>
-                    <td class="hw">80</td>
-                    <td class="hw">80</td>
-                    <td class="hw">80</td>
-                    <td class="hw">80</td>
-                    <td class="hw">80</td>
-                    <td class="mid">50</td>
-                    <td class="final">50</td>
-                    <td class="total">0</td>
-                    <td class="grade">0</td>
                 </tr>
     </table>
     <button id="exportBtn">Export this table sheet</button>
@@ -227,19 +165,6 @@
     mid: 0.35,
     final: 0.4
 };
-function getGrade(totalScore, mid, final) { // Line of GPA grading.
-        if (mid === 0 || final === 0) return 'F';
-        if (totalScore >= 89.5) return 'A+';
-        if (totalScore >= 84.5) return 'A';
-        if (totalScore >= 79.5) return 'A-';
-        if (totalScore >= 75.5) return 'B+';
-        if (totalScore >= 71.5) return 'B';
-        if (totalScore >= 66.5) return 'B-';
-        if (totalScore >= 61.5) return 'C+';
-        if (totalScore >= 59.5) return 'C';
-        if (totalScore >= 57.5) return 'C-';
-        return 'F';
-}
 function calculateTotal() {
     const table = document.getElementById('gradesTable');
     const rows = table.getElementsByTagName('tr');
@@ -265,9 +190,6 @@ function calculateTotal() {
         if (totalScore > 100) totalScore = 100; // Not exceed 100.
         const totalCell = rows[i].querySelector('.total');
         totalCell.textContent = Math.round(totalScore); 
-        const gradeCell = rows[i].querySelector('.grade');
-        const grade = getGrade(totalScore, mid, final);
-        gradeCell.textContent = grade;
         }
     }
     function exportToExcel() { // Export to Excel file and upload to system by hand.
