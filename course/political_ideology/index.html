@@ -5,7 +5,7 @@
     <title>Political Ideology</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Times New Roman", "標楷體";
             margin: 0;
             padding: 0;
         }
@@ -194,19 +194,6 @@
         paper: 0.35,
         present: 0.65
     };
-    function getGrade(totalScore, paper, present) {
-        if (paper === 0 || present === 0) return 'F';
-        if (totalScore >= 89.5) return 'A+';
-        if (totalScore >= 84.5) return 'A';
-        if (totalScore >= 79.5) return 'A-';
-        if (totalScore >= 75.5) return 'B+';
-        if (totalScore >= 71.5) return 'B';
-        if (totalScore >= 67.5) return 'B-';
-        if (totalScore >= 64.5) return 'C+';
-        if (totalScore >= 61.5) return 'C';
-        if (totalScore >= 59.5) return 'C-';
-        return 'F';
-    }
     function calculateTotal() {
         const table = document.getElementById('gradesTable');
         const rows = table.getElementsByTagName('tr');
@@ -221,9 +208,6 @@
             if (totalScore > 100) totalScore = 100; // Not exceed 100.
             const totalCell = rows[i].querySelector('.total');
             totalCell.textContent = Math.round(totalScore);
-            const gradeCell = rows[i].querySelector('.grade');
-            const grade = getGrade(totalScore, paper, present);
-            gradeCell.textContent = grade;
         }
     }
     function exportToExcel() {
