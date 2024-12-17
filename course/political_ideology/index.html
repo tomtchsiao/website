@@ -53,16 +53,17 @@
     <main>
             <h2>Announcement</h2>
             <p>
-            <span style="color: red">This course limited to 20 attendances</span>.<br>
+            <!-- <b>We consider to add three points in your total grade.</b> <br> -->
+            <span style="color: red">This course limited to 40 attendances</span>.<br>
             We have five handouts, you can pick the topics inside or find your own. <br>
             </p>
             <h2>Course information</h2>
             Instructor: Tzu-Chi Hsiao <br>
             Feel free to  <a href="mailto:tomtchsiao@gmail.com">mail</a> with me. <br>
             Office hours: By appointment. <br>
-            Course time: Every Tuesday 14:20-16:10. <br>
-            Course location: Room 306, Social Sciences Building, CCU. <br>
-            Course limitation: 20 students. <br>
+            Course time: Every Tuesday 10:10-12:00. <br>
+            Course location: Room 201, Social Sciences Building, CCU. <br>
+            Course limitation: 40 students. <br>
             <h2>Textbook</h2>
             Political Ideology, Andrew Heywood, Newest edition. <br>
             <h2>Teaching assistant</h2>
@@ -93,7 +94,7 @@
             <h2>Presentation</h2>
             <p>
             &bull; Held between Week 11 to Week 15. <br>
-            &bull; Each student has 30 minutes presentation. <br>
+            &bull; Each student has 20 minutes presentation. <br>
             &bull; Times New Roman and BiauKai font. <br>
             &bull; We are <b>not</b> encourage absence or skip if not in your turn. <br>
             &bull; Forms costs 5%, Overall content costs 30%, Performance of presentation 30%.
@@ -104,36 +105,6 @@
                 <td>Week</td>
                 <td>Time</td>
                 <td>Presenter</td>
-            </tr>
-            <tr>
-                <td>Week 11</td>
-                <td>14:20-14:50</td>
-                <td>473___043</td>
-            </tr>
-            <tr>
-                <td>Week 11</td>
-                <td>14:55-15:25</td>
-                <td>483___001</td>
-            </tr>
-            <tr>
-                <td>Week 11</td>
-                <td>15:30-15:55</td>
-                <td>483___010</td>
-            </tr>
-            <tr>
-                <td>Week 12</td>
-                <td>14:20-14:50</td>
-                <td>483___017</td>
-            </tr>
-            <tr>
-                <td>Week 12</td>
-                <td>14:55-15:25</td>
-                <td>483___024</td>
-            </tr>
-            <tr>
-                <td>Week 12</td>
-                <td>15:30-15:55</td>
-                <td>483___043</td>
             </tr>
             </table>
             <h2>Grades</h2>
@@ -175,6 +146,7 @@
             let present = Math.min(parseFloat(presentElem.textContent) || 0, 100);
             presentElem.textContent = present;
             let totalScore = paper * weights.paper + present * weights.present;
+            totalScore += 0; //Adding by performance.
             if (totalScore > 100) totalScore = 100; // Not exceed 100.
             const totalCell = rows[i].querySelector('.total');
             totalCell.textContent = Math.round(totalScore);
