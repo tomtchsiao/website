@@ -62,10 +62,15 @@
     a:active {
         color: var(--link-active-color);
     }
-    #time {
-        text-align: center;
-        font-size: 16px;
-        margin-bottom: 20px;
+    .datetime-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+    #date, #time {
+    font-size: 16px;
+    margin: 0 10px;
     }
     .profile-pic {
         width: var(--profile-pic-size);
@@ -85,21 +90,24 @@
     }
 </style>
 <link rel="icon" type="image/x-icon" href="img/fav.ico">
+<script>
+    function updateTime() {
+        const now = new Date();
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const date = now.toLocaleDateString('en', dateOptions);
+        const time = now.toLocaleTimeString('en', { hour12: false });
+        document.getElementById('date').textContent = date;
+        document.getElementById('time').textContent = time;
+    }
+    setInterval(updateTime, 1000);
+    window.onload = updateTime;
+</script>
 </head>
 <body>
-    <div id="time"></div>
-    <script>
-        setInterval(() => {
-            const now = new Date();
-            const yyyy = now.getFullYear();
-            const mm = (now.getMonth() + 1).toString().padStart(2, '0');
-            const dd = now.getDate().toString().padStart(2, '0');
-            const hh = now.getHours().toString().padStart(2, '0');
-            const min = now.getMinutes().toString().padStart(2, '0');
-            const ss = now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('time').textContent = `Current date is  ${dd} / ${mm} / ${yyyy}  and time is  ${hh}:${min}:${ss}.`;
-        }, 1000);
-    </script>
+    <div class="datetime-container">
+        <div id="date"></div>
+        <div id="time"></div>
+    </div>
     <div class="container">
         <h1>Tzu-Chi Hsiao (蕭子期)</h1>
         <ul>
