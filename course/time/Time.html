@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Time display</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: "Times New Roman", "標楷體";
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+        p {
+            text-align: left;
+        }
+        #date {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #time {
+            font-size: 52px;
+        }
+    </style>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = now.toLocaleDateString('en', dateOptions);
+            const time = now.toLocaleTimeString('en', { hour12: false });
+            document.getElementById('date').textContent = date;
+            document.getElementById('time').textContent = time;
+        }
+        setInterval(updateTime, 1000);
+        window.onload = updateTime;
+    </script>
+</head>
+<body>
+    <div id="date"></div>
+    <div id="time"></div>
+    <br>
+    <p>
+    1. 考試時間為 09:15 - 12:15，09:45 後不得進場，10:45 後始得交卷離場。<br>
+    2. 勿在考試過程中使用手機、平板、筆記型電腦等通訊設備及與同學交談、左顧右盼。<br>
+    3. 考試過程中若有任何問題，請耐心舉手詢問監考人員。<br>
+    4. 交卷時於前方簽到處簽名，並將試卷、答題卷一併繳回，未簽名及攜出試卷、答題卷以零分計。<br>
+    5. 請於答題卷書寫答案，不得在試卷上作答，否則以不予計分。<br>
+    6. <span style="color: red;">答題卷第一行請書寫系級、學號、姓名，未寫者以零分計。</span>
+
+    </p>
+</body>
+</html>
