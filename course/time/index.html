@@ -28,7 +28,7 @@
     <script>
         function updateTime() {
             const now = new Date();
-            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateOptions = {day: 'numeric', month: 'long' , year: 'numeric', weekday: 'long'};
             const date = now.toLocaleDateString('en', dateOptions);
             const time = now.toLocaleTimeString('en', { hour12: false });
             document.getElementById('date').textContent = date;
